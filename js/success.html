@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Donation Success</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex items-center justify-center min-h-screen bg-green-100">
+    <div class="bg-white p-10 rounded-xl shadow-xl text-center">
+        <h1 class="text-3xl font-bold text-green-600 mb-4">✅ Donation Successful</h1>
+
+        <p class="text-xl mb-2">
+            Amount: <span id="amount"></span> BDT
+        </p>
+
+        <p class="text-sm text-gray-500 mb-6" id="time"></p>
+
+        <a href="index.html" class="px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600">
+            Back to Home
+        </a>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById("amount").innerText = params.get("amount");
+        document.getElementById("time").innerText = params.get("time");
+    </script>
+</body>
+
+</html>

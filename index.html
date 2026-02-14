@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <script src="https://kit.fontawesome.com/04aba14f9b.js" crossorigin="anonymous"></script>
+
   <title>normal website</title>
   <style type="text/tailwindcss">
     @layer base {
@@ -20,6 +20,19 @@
       font-style: normal;
     }
   }
+  
+
+  .active {
+    background-color: rgb(255, 30, 251);
+    color: white;
+    cursor: pointer;
+  }
+  #historyList {
+  max-height: 300px;
+  overflow-y: auto;
+  }
+
+
 </style>
 
 </head>
@@ -27,16 +40,16 @@
 <body class="text-[#111111]">
   <header class="bg-[#4B0082]/45 w-full py-[24px] rounded-sm">
     <nav class="flex justify-between items-center mx-3 my-2 md:mx-14 md:my-6">
-      <h1
-        class="px-4 py-2 text-xl md:px-[32px] md:py-[12px] bg-[#B4F461] rounded-lg text-[#111111] font-semibold md:text-3xl">
-        <a href="">Blog</a>
-      </h1>
+      <button
+        class="myBtn px-4 py-2 text-xl md:px-[32px] md:py-[12px] bg-[#B4F461] rounded-lg text-[#111111] font-semibold md:text-3xl hover:bg-[#d459ed]">Blog</button>
+
       <h1>
         <a class="flex justify-center items-center gap-1 font-semibold text-xs md:text-xl text-[#111111]" href=""><img
             class="w-[20px] h-10px md:w-[38px] md:h-[38px]" src="./assets/logo.png" alt="">Donate
           Bangladesh</a>
       </h1>
-      <h1 class="flex justify-between items-center gap-1 font-medium md:text-xl text-[#111111] mr-1 md:mx-10"><img
+      <h1 id="main_balance"
+        class="flex justify-between items-center gap-1 font-medium md:text-xl text-[#111111] mr-1 md:mx-10"><img
           class="w-[28px] h-[28px]" src="./assets/coin.png" alt="">
         5500 BDT
       </h1>
@@ -45,22 +58,30 @@
   <!-- header end -->
   <!-- start main -->
   <main class="container mx-auto my-8 md:my-16 bg-[#4B0082]/15 rounded-2xl py-10">
+    <!-- history section -->
+    <section id="historySection" class="hidden mx-10 my-10">
+      <h1 class="text-2xl font-bold mb-5">Donation History</h1>
+      <div id="historyList" class="space-y-4"></div>
+    </section>
+
     <section>
       <div class="flex justify-center text-[#111111] gap-10">
-        <button class="border bg-[#B4F461] text-[#111111] rounded-lg py-2 px-4 md:px-8  md:py-4">Donation</button>
-        <button class="border bg-[#B4F461] text-[#111111] rounded-lg py-2 px-4 md:px-8  md:py-4">History</button>
+        <button id="donationBtn"
+          class="border bg-[#B4F461] text-[#111111] rounded-lg py-2 px-4 md:px-8  md:py-4 hover:bg-[#d459ed]">Donation</button>
+        <button id="historyBtn"
+          class="border bg-[#B4F461] text-[#111111] rounded-lg py-2 px-4 md:px-8  md:py-4 hover:bg-[#d459ed]">History</button>
       </div>
     </section>
     <!--start container section -->
     <!-- section 1 -->
     <section
-      class="mx-10 my-8 p-8 md:my-16 border shadow-md hover:shadow-2xl transition border-[#111111]/10 lg:mx-20 bg-[#4B0082]/20 rounded-xl">
+      class="mx-5 my-8 p-8 md:my-16 border shadow-md hover:shadow-2xl transition border-[#111111]/10 lg:mx-20 bg-[#4B0082]/20 rounded-xl">
       <div class="flex justify-center mx-auto flex-col md:flex-row gap-5 lg:gap-10">
         <img class="w-[522px] h-[389px] md:w-1/2 mx-auto" src="./assets/noakhali.png" alt="">
         <div class="text-xs md:text-[14px]">
           <h2
-            class="flex justify-start items-center w-2/3 md:w-3/5 lg:w-3/5 gap-2 text-xl font-midium mb-5 px-4 py-2 bg-[#111111]/5 rounded-lg">
-            <img class="w-6 h-6" src="./assets/coin.png" alt="">0
+            class="donate-total flex justify-start items-center w-2/3 md:w-3/5 lg:w-3/5 gap-2 text-xl font-midium mb-5 px-4 py-2 bg-[#111111]/5 rounded-lg">
+            <img class="w-6 h-6" src="./assets/coin.png" alt=""><span>0</span>
             BDT
           </h2>
           <h1 class="font-bold text-xl">Donate for Flood at Noakhali, Bangladesh</h1>
@@ -71,9 +92,9 @@
             makes difference. Please join us in supporting the relief efforts and making a positive impact on the lives
             of those in need.</p>
           <div class="flex flex-col lg:mt-3">
-            <input class="mt-10 md:mt-4 border border-[#111111]/25 rounded-lg bg-[#FFFFFF] p-5 lg:w-2/3" type="text"
-              placeholder="Write Donation Amount">
-            <button class="mt-4 px-8 py-4 bg-[#B4F461] rounded-lg lg:w-1/2">Donate
+            <input id="inputTk" class="mt-10 md:mt-4 border border-[#111111]/25 rounded-lg bg-[#FFFFFF] p-5 lg:w-2/3"
+              type="text" placeholder="Write Donation Amount">
+            <button id="btn_input1" class=" mt-4 px-8 py-4 bg-[#B4F461] rounded-lg lg:w-1/2 hover:bg-[#d459ed]">Donate
               Now</button>
           </div>
         </div>
@@ -81,13 +102,13 @@
     </section>
     <!-- section 2 -->
     <section
-      class="my-8 mx-10 p-8 md:my-16 border shadow-md hover:shadow-2xl transition border-[#111111]/10 lg:mx-20 bg-[#4B0082]/20 rounded-xl">
+      class="my-8 mx-5 p-8 md:my-16 border shadow-md hover:shadow-2xl transition border-[#111111]/10 lg:mx-20 bg-[#4B0082]/20 rounded-xl">
       <div class="flex justify-center mx-auto flex-col md:flex-row gap-5 lg:gap-10">
         <img class="w-[522px] h-[400px] md:w-1/2 mx-auto" src="./assets/feni.png" alt="">
         <div class="text-xs md:text-[14px]">
           <h2
-            class="flex justify-start items-center w-2/3 md:w-3/5 lg:w-3/5 gap-2 text-xl font-midium mb-5 px-4 py-2 bg-[#111111]/5 rounded-lg">
-            <img class="w-6 h-6" src="./assets/coin.png" alt="">600
+            class="donate-total flex justify-start items-center w-2/3 md:w-3/5 lg:w-3/5 gap-2 text-xl font-midium mb-5 px-4 py-2 bg-[#111111]/5 rounded-lg">
+            <img class="w-6 h-6" src="./assets/coin.png" alt=""><span>500</span>
             BDT
           </h2>
           <h1 class="font-bold text-xl">Donate for Flood Relief in Feni,Bangladesh</h1>
@@ -98,9 +119,9 @@
             makes difference. Please join us in supporting the relief efforts and making a positive impact on the lives
             of those in need.</p>
           <div class="flex flex-col lg:mt-4">
-            <input class="mt-6 border border-[#111111]/25 rounded-lg bg-[#FFFFFF] p-5 lg:w-2/3" type="text"
-              placeholder="Write Donation Amount">
-            <button class="mt-4 px-8 py-4 bg-[#B4F461] rounded-lg lg:w-1/2">Donate
+            <input id="input_Tk" class="mt-6 border border-[#111111]/25 rounded-lg bg-[#FFFFFF] p-5 lg:w-2/3"
+              type="text" placeholder="Write Donation Amount">
+            <button id="btn_input2" class="mt-4 px-8 py-4 bg-[#B4F461] rounded-lg lg:w-1/2 hover:bg-[#d459ed]">Donate
               Now</button>
           </div>
         </div>
@@ -108,13 +129,13 @@
     </section>
     <!-- section 3 -->
     <section
-      class="my-8 mx-10 p-8 md:my-16 border shadow-md hover:shadow-2xl border-[#111111]/10 lg:mx-20 bg-[#4B0082]/20 rounded-xl">
+      class="my-8 mx-5 p-8 md:my-16 border shadow-md hover:shadow-2xl border-[#111111]/10 lg:mx-20 bg-[#4B0082]/20 rounded-xl">
       <div class="flex justify-center mx-auto flex-col md:flex-row gap-5 lg:gap-10">
         <img class="w-[522px] h-[437px] md:w-1/2 mx-auto" src="./assets/quota-protest.png" alt="">
         <div class="text-xs md:text-[14px]">
           <h2
-            class="flex justify-start items-center w-2/3 md:w-3/5 lg:w-3/5 gap-2 text-xl font-midium mb-5 px-4 py-2 bg-[#111111]/5 rounded-lg">
-            <img class="w-6 h-6" src="./assets/coin.png" alt="">2400
+            class="donate-total flex justify-start items-center w-2/3 md:w-3/5 lg:w-3/5 gap-2 text-xl font-midium mb-5 px-4 py-2 bg-[#111111]/5 rounded-lg">
+            <img class="w-6 h-6" src="./assets/coin.png" alt=""><span>2400</span>
             BDT
           </h2>
           <h1 class="font-bold text-xl">Aid for Injured in the Quota Movement</h1>
@@ -125,9 +146,9 @@
             their suffering and aiding in their recovery. Please consider making a donation to support these brave
             individuals in their time of need.</p>
           <div class="flex flex-col lg:mt-3">
-            <input class="mt-10 md:mt-4 border border-[#111111]/25 rounded-lg bg-[#FFFFFF] p-5 lg:w-2/3" type="text"
-              placeholder="Write Donation Amount">
-            <button class="mt-4 px-8 py-4 bg-[#B4F461] rounded-lg lg:w-1/2">Donate
+            <input id="tk_Input" class="mt-10 md:mt-4 border border-[#111111]/25 rounded-lg bg-[#FFFFFF] p-5 lg:w-2/3"
+              type="text" placeholder="Write Donation Amount">
+            <button id="btn_input3" class="mt-4 px-8 py-4 bg-[#B4F461] rounded-lg lg:w-1/2 hover:bg-[#d459ed]">Donate
               Now</button>
           </div>
         </div>
@@ -178,8 +199,8 @@
     </nav>
   </footer>
 
-  <script src="./js/index.js"></script>
   <script src="./js/function.js"></script>
+  <script src="./js/index.js"></script>
 
 </body>
 
